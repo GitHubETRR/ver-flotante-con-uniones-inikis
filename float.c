@@ -27,9 +27,9 @@ int main(void){
             unsigned int bit13 : 1;
             unsigned int bit14 : 1;
             unsigned int bit15 : 1;
-        };
+        }bits;
     }floatNum;
-
+    floatNum.bits.bit0=1;
     floatNum.var=numero;
 
     for(int i=0; i<4; i++){
@@ -45,4 +45,11 @@ int main(void){
     scanf("%d", &nuevoValor);
 
     //TODO: como definir el bit especificado
+
+    //Utilizar un puntero para poder ver el contenido de los 4 bytes dentro de una variable float de a uno.
+    char * punt1byte_floatNum = &floatNum.var;
+    for (int i = 0; i < 4; i++){
+        printf("\nByte %d del float: \n\t- HEX:%x\n\t- DEC:%d\n",i+1,*punt1byte_floatNum,*punt1byte_floatNum);
+        punt1byte_floatNum++;
+    }
 }
